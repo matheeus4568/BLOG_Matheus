@@ -1,0 +1,32 @@
+{% extends 'matheus/base.html'%}
+
+{% block centro %}
+    
+    <!-- Card informacional -->
+    <div class="card text-center p-4 mb-5 d-flex justify-content-center mx-auto" style="width: 40rem;">
+
+        <img src="media/matheus.jpg" alt="matheus :D" width="100%" height="300px">
+        <!-- Mini desceição -->
+        <div class="alert alert-warning my-4">
+            <h1 class="mb-0">Matheus Rodrigues O.</h1>
+            <p class="fs-6">Sou um ser humano criativo, artístico, sedentário e inteligente. Tenho dois gatos que são meus filhos e amo minha aparência - adoro aderir uma aesthethic que confunde bizarro/esquisito com bonito/fofo/sensual. Minha família é pobre e tenho uma relação estranha com ela.</p>
+        </div>
+        <!-- botões -->
+        <div>
+            <a href="hobbies"><button class="btn btn-lg btn-dark fw-bold" type="button" >Veja os hobbies</button></a>
+            <a href="namorados"><button class="btn btn-lg btn-info fw-bold" type="button" >Veja os namorados</button></a>
+        </div>            
+    </div>
+
+    <!-- Mais fotos -->
+    <h1 class="mb-3">Mais fotos</h1>
+
+    <div class="row mx-5" data-masonry='{"percentPosition": true }'>
+        {% for foto in maisfotos %}
+            <div class="col-sm-6 col-lg-2 mb-2">
+                <img class="rounded-3" style="width: 15rem;" src="{{ foto.image.url }}" alt="{{ foto.titulo }}">
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

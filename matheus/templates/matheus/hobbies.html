@@ -1,0 +1,32 @@
+{% extends 'matheus/base.html'%}
+
+{% block centro %}
+
+    <h1 class="pb-3">Hobbies</h1>
+
+        <!-- Container para os cards -->
+    <div class="row mx-5" width="100%" data-masonry='{"percentPosition": true }'>
+
+        {% for hobbie in hobbies %}
+            <!-- Card -->
+            <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="card" style="width: 20rem; height: 100%;">
+                    
+                    <img class="card-img-top" src="{{ hobbie.image.url }}" alt="{{ hobbie.nome }}">
+
+                    <div class="card-body">
+                        <!-- nota -->
+                        <span class="badge position-absolute top-0 translate-middle rounded-pill bg-primary bg-gradient text-light fs-6">Nota {{ hobbie.nota }}</span>
+                         <!-- infos -->
+                        <h2 class="card-title m-0">{{ hobbie.nome }}</h2>
+                        <p class="card-text text-secondary fst-italic">Data de início: {{ hobbie.data_inicio }}</p>
+                        <h5>Sobre</h5>
+                        <p class="fs-6">{{ hobbie.sobre }}</p>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
